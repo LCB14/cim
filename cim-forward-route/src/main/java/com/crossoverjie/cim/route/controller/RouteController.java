@@ -163,13 +163,11 @@ public class RouteController implements RouteApi {
         //登录校验
         StatusEnum status = accountService.login(loginReqVO);
         if (status == StatusEnum.SUCCESS) {
-
             //保存路由信息
             accountService.saveRouteInfo(loginReqVO,server);
 
             CIMServerResVO vo = new CIMServerResVO(routeInfo);
             res.setDataBody(vo);
-
         }
         res.setCode(status.getCode());
         res.setMessage(status.getMessage());

@@ -93,7 +93,6 @@ public class RouteRequestImpl implements RouteRequest {
 
     @Override
     public CIMServerResVO.ServerInfo getCIMServer(LoginReqVO loginReqVO) throws Exception {
-
         RouteApi routeApi = new ProxyManager<>(RouteApi.class, routeUrl, okHttpClient).getInstance();
         com.crossoverjie.cim.route.api.vo.req.LoginReqVO vo = new com.crossoverjie.cim.route.api.vo.req.LoginReqVO() ;
         vo.setUserId(loginReqVO.getUserId());

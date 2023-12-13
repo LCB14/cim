@@ -34,7 +34,6 @@ public class UserInfoCacheServiceImpl implements UserInfoCacheService {
 
     @Override
     public CIMUserInfo loadUserInfoByUserId(Long userId) {
-
         //优先从本地缓存获取
         CIMUserInfo cimUserInfo = USER_INFO_MAP.get(userId);
         if (cimUserInfo != null){
@@ -53,7 +52,6 @@ public class UserInfoCacheServiceImpl implements UserInfoCacheService {
 
     @Override
     public boolean saveAndCheckUserLoginStatus(Long userId) throws Exception {
-
         Long add = redisTemplate.opsForSet().add(LOGIN_STATUS_PREFIX, userId.toString());
         if (add == 0){
             return false ;
