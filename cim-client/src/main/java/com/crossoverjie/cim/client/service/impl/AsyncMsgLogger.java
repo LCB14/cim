@@ -55,8 +55,6 @@ public class AsyncMsgLogger implements MsgLogger {
     }
 
     private class Worker extends Thread {
-
-
         @Override
         public void run() {
             while (started) {
@@ -68,12 +66,10 @@ public class AsyncMsgLogger implements MsgLogger {
                 }
             }
         }
-
     }
 
 
     private void writeLog(String msg) {
-
         LocalDate today = LocalDate.now();
         int year = today.getYear();
         int month = today.getMonthValue();

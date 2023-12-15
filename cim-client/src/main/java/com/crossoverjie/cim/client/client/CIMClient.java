@@ -78,7 +78,6 @@ public class CIMClient {
 
     @PostConstruct
     public void start() throws Exception {
-
         //登录 + 获取可以使用的服务器 ip+port
         CIMServerResVO.ServerInfo cimServer = userLogin();
 
@@ -87,8 +86,6 @@ public class CIMClient {
 
         //向服务端注册
         loginCIMServer();
-
-
     }
 
     /**

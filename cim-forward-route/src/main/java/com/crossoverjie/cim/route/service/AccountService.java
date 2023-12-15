@@ -52,7 +52,7 @@ public interface AccountService {
     Map<Long, CIMServerResVO> loadRouteRelated();
 
     /**
-     * 获取某个用户的路有关系
+     * 获取某个用户的路由关系
      *
      * @param userId
      * @return 获取某个用户的路有关系

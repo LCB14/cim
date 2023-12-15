@@ -67,7 +67,7 @@ public class MsgHandler implements MsgHandle {
      * @param msg
      */
     private void normalChat(String msg) {
-        String[] totalMsg = msg.split(";;");
+        String[] totalMsg = msg.split(":");
         if (totalMsg.length > 1) {
             //私聊
             P2PReqVO p2PReqVO = new P2PReqVO();
@@ -79,7 +79,6 @@ public class MsgHandler implements MsgHandle {
             } catch (Exception e) {
                 LOGGER.error("Exception", e);
             }
-
         } else {
             //群聊
             GroupReqVO groupReqVO = new GroupReqVO(configuration.getUserId(), msg);
@@ -112,9 +111,7 @@ public class MsgHandler implements MsgHandle {
 
     @Override
     public void p2pChat(P2PReqVO p2PReqVO) throws Exception {
-
         routeRequest.sendP2PMsg(p2PReqVO);
-
     }
 
     @Override

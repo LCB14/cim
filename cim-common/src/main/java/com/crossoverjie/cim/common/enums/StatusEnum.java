@@ -8,19 +8,21 @@ import java.util.List;
  */
 
 public enum StatusEnum {
-
     /**
      * 成功
      */
     SUCCESS("9000", "成功"),
+
     /**
      * 成功
      */
     FALLBACK("8000", "FALL_BACK"),
+
     /**
      * 参数校验失败
      **/
     VALIDATION_FAIL("3000", "invalid argument"),
+
     /**
      * 失败
      */
@@ -44,13 +46,11 @@ public enum StatusEnum {
     SERVER_NOT_AVAILABLE("7100", "cim server is not available, please try again later!"),
 
     RECONNECT_FAIL("7200", "Reconnect fail, continue to retry!"),
+
     /**
      * 登录信息不匹配
      */
-    ACCOUNT_NOT_MATCH("9100", "The User information you have used is incorrect!"),
-
-
-    ;
+    ACCOUNT_NOT_MATCH("9100", "The User information you have used is incorrect!");
 
 
     /**

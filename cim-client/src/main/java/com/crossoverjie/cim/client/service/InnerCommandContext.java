@@ -28,7 +28,6 @@ public class InnerCommandContext {
      * @return
      */
     public InnerCommand getInstance(String command) {
-
         Map<String, String> allClazz = SystemCommandEnum.getAllClazz();
 
         //兼容需要命令后接参数的数据 :q cross
