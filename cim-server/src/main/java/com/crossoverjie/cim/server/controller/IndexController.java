@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Function:
  *
  * @author crossoverJie
- *         Date: 22/05/2018 14:46
+ * Date: 22/05/2018 14:46
  * @since JDK 1.8
  */
 @Controller
@@ -38,26 +38,25 @@ public class IndexController implements ServerApi {
     private CounterService counterService;
 
     /**
-     *
      * @param sendMsgReqVO
      * @return
      */
     @Override
     @ApiOperation("Push msg to client")
-    @RequestMapping(value = "sendMsg",method = RequestMethod.POST)
+    @RequestMapping(value = "sendMsg", method = RequestMethod.POST)
     @ResponseBody
-    public BaseResponse<SendMsgResVO> sendMsg(@RequestBody SendMsgReqVO sendMsgReqVO){
+    public BaseResponse<SendMsgResVO> sendMsg(@RequestBody SendMsgReqVO sendMsgReqVO) {
         BaseResponse<SendMsgResVO> res = new BaseResponse();
-        cimServer.sendMsg(sendMsgReqVO) ;
+        cimServer.sendMsg(sendMsgReqVO);
 
         counterService.increment(Constants.COUNTER_SERVER_PUSH_COUNT);
 
-        SendMsgResVO sendMsgResVO = new SendMsgResVO() ;
-        sendMsgResVO.setMsg("OK") ;
-        res.setCode(StatusEnum.SUCCESS.getCode()) ;
-        res.setMessage(StatusEnum.SUCCESS.getMessage()) ;
-        res.setDataBody(sendMsgResVO) ;
-        return res ;
+        SendMsgResVO sendMsgResVO = new SendMsgResVO();
+        sendMsgResVO.setMsg("OK");
+        res.setCode(StatusEnum.SUCCESS.getCode());
+        res.setMessage(StatusEnum.SUCCESS.getMessage());
+        res.setDataBody(sendMsgResVO);
+        return res;
     }
 
 }

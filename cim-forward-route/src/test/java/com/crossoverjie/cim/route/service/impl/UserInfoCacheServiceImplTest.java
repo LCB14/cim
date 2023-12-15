@@ -36,7 +36,7 @@ public class UserInfoCacheServiceImplTest {
     }
 
     @Test
-    public void onlineUser(){
+    public void onlineUser() {
         Set<CIMUserInfo> cimUserInfos = userInfoCacheService.onlineUser();
         LOGGER.info("cimUserInfos={}", JSON.toJSONString(cimUserInfos));
     }

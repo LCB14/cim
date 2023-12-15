@@ -21,10 +21,10 @@ public class CloseAIModelCommand implements InnerCommand {
 
 
     @Autowired
-    private MsgHandle msgHandle ;
+    private MsgHandle msgHandle;
 
     @Autowired
-    private EchoService echoService ;
+    private EchoService echoService;
 
     @Override
     public void process(String msg) {

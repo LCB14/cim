@@ -15,7 +15,7 @@ import java.util.List;
  * Function: Zookeeper kit
  *
  * @author crossoverJie
- *         Date: 2018/8/19 00:33
+ * Date: 2018/8/19 00:33
  * @since JDK 1.8
  */
 @Component
@@ -28,7 +28,7 @@ public class ZKit {
     private ZkClient zkClient;
 
     @Autowired
-    private ServerCache serverCache ;
+    private ServerCache serverCache;
 
 
     /**
@@ -40,10 +40,10 @@ public class ZKit {
         zkClient.subscribeChildChanges(path, new IZkChildListener() {
             @Override
             public void handleChildChange(String parentPath, List<String> currentChildren) throws Exception {
-                logger.info("Clear and update local cache parentPath=[{}],currentChildren=[{}]", parentPath,currentChildren.toString());
+                logger.info("Clear and update local cache parentPath=[{}],currentChildren=[{}]", parentPath, currentChildren.toString());
 
                 //update local cache, delete and save.
-                serverCache.updateCache(currentChildren) ;
+                serverCache.updateCache(currentChildren);
             }
         });
 
@@ -53,12 +53,13 @@ public class ZKit {
 
     /**
      * get all server node from zookeeper
+     *
      * @return
      */
-    public List<String> getAllNode(){
+    public List<String> getAllNode() {
         List<String> children = zkClient.getChildren("/route");
         logger.info("Query all node =[{}] success.", JSON.toJSONString(children));
-       return children;
+        return children;
     }
 
 

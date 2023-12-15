@@ -15,34 +15,34 @@ import java.util.Date;
 @Component
 public class ClientInfo {
 
-    private Info info = new Info() ;
+    private Info info = new Info();
 
-    public Info get(){
-        return info ;
+    public Info get() {
+        return info;
     }
 
-    public ClientInfo saveUserInfo(long userId,String userName){
+    public ClientInfo saveUserInfo(long userId, String userName) {
         info.setUserId(userId);
         info.setUserName(userName);
         return this;
     }
 
 
-    public ClientInfo saveServiceInfo(String serviceInfo){
+    public ClientInfo saveServiceInfo(String serviceInfo) {
         info.setServiceInfo(serviceInfo);
         return this;
     }
 
-    public ClientInfo saveStartDate(){
+    public ClientInfo saveStartDate() {
         info.setStartDate(new Date());
         return this;
     }
 
-    public class Info{
+    public class Info {
         private String userName;
-        private long userId ;
-        private String serviceInfo ;
-        private Date startDate ;
+        private long userId;
+        private String serviceInfo;
+        private Date startDate;
 
         public Info() {
         }

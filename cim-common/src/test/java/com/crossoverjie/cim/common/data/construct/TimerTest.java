@@ -15,23 +15,23 @@ import java.util.TimerTask;
  */
 public class TimerTest {
 
-    private static Logger logger = LoggerFactory.getLogger(TimerTest.class) ;
+    private static Logger logger = LoggerFactory.getLogger(TimerTest.class);
 
     public static void main(String[] args) {
         logger.info("start");
-        Timer timer = new Timer() ;
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 logger.info("test");
             }
-        },50000);
+        }, 50000);
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 logger.info("test");
             }
-        },30000);
+        }, 30000);
 
     }
 }

@@ -20,7 +20,7 @@ public class RandomHandle implements RouteHandle {
     public String routeServer(List<String> values, String key) {
         int size = values.size();
         if (size == 0) {
-            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE) ;
+            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE);
         }
         int offset = ThreadLocalRandom.current().nextInt(size);
 

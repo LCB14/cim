@@ -13,6 +13,7 @@ public interface ServerApi {
 
     /**
      * Push msg to client
+     *
      * @param sendMsgReqVO
      * @return
      * @throws Exception

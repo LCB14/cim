@@ -24,7 +24,7 @@ public class EchoInfoCommand implements InnerCommand {
     private ClientInfo clientInfo;
 
     @Autowired
-    private EchoService echoService ;
+    private EchoService echoService;
 
     @Override
     public void process(String msg) {

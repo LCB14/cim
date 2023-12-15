@@ -19,17 +19,18 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class CommonBizService {
-    private static Logger logger = LoggerFactory.getLogger(CommonBizService.class) ;
+    private static Logger logger = LoggerFactory.getLogger(CommonBizService.class);
 
 
     @Autowired
-    private ServerCache serverCache ;
+    private ServerCache serverCache;
 
     /**
      * check ip and port
+     *
      * @param routeInfo
      */
-    public void checkServerAvailable(RouteInfo routeInfo){
+    public void checkServerAvailable(RouteInfo routeInfo) {
         boolean reachable = NetAddressIsReachable.checkAddressReachable(routeInfo.getIp(), routeInfo.getCimServerPort(), 1000);
         if (!reachable) {
             logger.error("ip={}, port={} are not available", routeInfo.getIp(), routeInfo.getCimServerPort());
@@ -37,7 +38,7 @@ public class CommonBizService {
             // rebuild cache
             serverCache.rebuildCacheList();
 
-            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE) ;
+            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE);
         }
 
     }

@@ -18,7 +18,7 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"zhangsan say,you haha");
+        Assert.assertEquals(log, "zhangsan say,you haha");
     }
 
     @Test
@@ -28,7 +28,7 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"zhangsan say,you haha,zhangsan say nihao");
+        Assert.assertEquals(log, "zhangsan say,you haha,zhangsan say nihao");
     }
 
     @Test
@@ -38,8 +38,9 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"see you zhangsan,zhangsan say");
+        Assert.assertEquals(log, "see you zhangsan,zhangsan say");
     }
+
     @Test
     public void echo4() {
         String msg = "{}see you,zhangsan say";
@@ -47,8 +48,9 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"!!!see you,zhangsan say");
+        Assert.assertEquals(log, "!!!see you,zhangsan say");
     }
+
     @Test
     public void echo5() {
         String msg = "see you,zhangsan say{}";
@@ -56,7 +58,7 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"see you,zhangsan say!!!");
+        Assert.assertEquals(log, "see you,zhangsan say!!!");
     }
 
     @Test
@@ -66,7 +68,7 @@ public class EchoTest {
 
         String log = log(msg, place);
         System.out.println(log);
-        Assert.assertEquals(log,"see you,zhangsan say");
+        Assert.assertEquals(log, "see you,zhangsan say");
     }
 
     private String log(String msg, String... place) {
@@ -75,7 +77,7 @@ public class EchoTest {
         for (int i = 0; i < place.length; i++) {
             int index = msg.indexOf("{}", k);
 
-            if (index == -1){
+            if (index == -1) {
                 return msg;
             }
 

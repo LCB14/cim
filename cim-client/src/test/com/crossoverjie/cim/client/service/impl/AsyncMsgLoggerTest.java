@@ -15,9 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class AsyncMsgLoggerTest {
 
 
-
     @Autowired
-    private MsgLogger msgLogger ;
+    private MsgLogger msgLogger;
 
     @Test
     public void writeLog() throws Exception {
@@ -29,9 +28,8 @@ public class AsyncMsgLoggerTest {
     }
 
 
-
     @Test
-    public void query(){
+    public void query() {
         String crossoverJie = msgLogger.query("crossoverJie");
         System.out.println(crossoverJie);
     }

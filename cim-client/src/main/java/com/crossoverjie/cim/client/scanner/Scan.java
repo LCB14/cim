@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/12/21 16:44
+ * Date: 2018/12/21 16:44
  * @since JDK 1.8
  */
 public class Scan implements Runnable {
@@ -27,17 +27,17 @@ public class Scan implements Runnable {
      */
     private AppConfiguration configuration;
 
-    private MsgHandle msgHandle ;
+    private MsgHandle msgHandle;
 
-    private MsgLogger msgLogger ;
+    private MsgLogger msgLogger;
 
-    private EchoService echoService ;
+    private EchoService echoService;
 
     public Scan() {
         this.configuration = SpringBeanFactory.getBean(AppConfiguration.class);
-        this.msgHandle = SpringBeanFactory.getBean(MsgHandle.class) ;
-        this.msgLogger = SpringBeanFactory.getBean(MsgLogger.class) ;
-        this.echoService = SpringBeanFactory.getBean(EchoService.class) ;
+        this.msgHandle = SpringBeanFactory.getBean(MsgHandle.class);
+        this.msgLogger = SpringBeanFactory.getBean(MsgLogger.class);
+        this.echoService = SpringBeanFactory.getBean(EchoService.class);
     }
 
     @Override
@@ -52,15 +52,15 @@ public class Scan implements Runnable {
             }
 
             //系统内置命令
-            if (msgHandle.innerCommand(msg)){
+            if (msgHandle.innerCommand(msg)) {
                 continue;
             }
 
             //真正的发送消息
-            msgHandle.sendMsg(msg) ;
+            msgHandle.sendMsg(msg);
 
             //写入聊天记录
-            msgLogger.log(msg) ;
+            msgLogger.log(msg);
 
             echoService.echo(EmojiParser.parseToUnicode(msg));
         }

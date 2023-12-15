@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/12/23 22:39
+ * Date: 2018/12/23 22:39
  * @since JDK 1.8
  */
 @SpringBootTest(classes = CIMClientApplication.class)
@@ -33,12 +33,12 @@ public class RouteTest {
     private String userName;
 
     @Autowired
-    private RouteRequest routeRequest ;
+    private RouteRequest routeRequest;
 
     @Test
     public void test() throws Exception {
-        LoginReqVO vo = new LoginReqVO(userId,userName) ;
+        LoginReqVO vo = new LoginReqVO(userId, userName);
         CIMServerResVO.ServerInfo cimServer = routeRequest.getCIMServer(vo);
-        LOGGER.info("cimServer=[{}]",cimServer.toString());
+        LOGGER.info("cimServer=[{}]", cimServer.toString());
     }
 }

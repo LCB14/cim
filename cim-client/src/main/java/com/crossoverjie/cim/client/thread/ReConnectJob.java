@@ -18,13 +18,13 @@ public class ReConnectJob implements Runnable {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(ReConnectJob.class);
 
-    private ChannelHandlerContext context ;
+    private ChannelHandlerContext context;
 
-    private HeartBeatHandler heartBeatHandler ;
+    private HeartBeatHandler heartBeatHandler;
 
     public ReConnectJob(ChannelHandlerContext context) {
         this.context = context;
-        this.heartBeatHandler = SpringBeanFactory.getBean(ClientHeartBeatHandlerImpl.class) ;
+        this.heartBeatHandler = SpringBeanFactory.getBean(ClientHeartBeatHandlerImpl.class);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ReConnectJob implements Runnable {
         try {
             heartBeatHandler.process(context);
         } catch (Exception e) {
-            LOGGER.error("Exception",e);
+            LOGGER.error("Exception", e);
         }
     }
 }

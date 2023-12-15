@@ -64,9 +64,9 @@ public class RouteHandler {
         ChatReqVO vo = new ChatReqVO(userInfo.getUserId(), userInfo.getUserName());
         try {
             response = (Response) routeApi.offLine(vo);
-        } catch (Exception e){
-            LOGGER.error("Exception",e);
-        }finally {
+        } catch (Exception e) {
+            LOGGER.error("Exception", e);
+        } finally {
             response.body().close();
         }
     }

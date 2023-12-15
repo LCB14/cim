@@ -9,21 +9,21 @@ import org.slf4j.LoggerFactory;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/12/23 00:35
+ * Date: 2018/12/23 00:35
  * @since JDK 1.8
  */
-public class ServerListListener implements Runnable{
+public class ServerListListener implements Runnable {
 
     private static Logger logger = LoggerFactory.getLogger(ServerListListener.class);
 
     private ZKit zkUtil;
 
-    private AppConfiguration appConfiguration ;
+    private AppConfiguration appConfiguration;
 
 
     public ServerListListener() {
-        zkUtil = SpringBeanFactory.getBean(ZKit.class) ;
-        appConfiguration = SpringBeanFactory.getBean(AppConfiguration.class) ;
+        zkUtil = SpringBeanFactory.getBean(ZKit.class);
+        appConfiguration = SpringBeanFactory.getBean(AppConfiguration.class);
     }
 
     @Override

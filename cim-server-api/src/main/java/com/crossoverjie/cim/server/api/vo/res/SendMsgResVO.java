@@ -4,11 +4,11 @@ package com.crossoverjie.cim.server.api.vo.res;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2017/6/26 15:43
+ * Date: 2017/6/26 15:43
  * @since JDK 1.8
  */
 public class SendMsgResVO {
-    private String msg ;
+    private String msg;
 
     public String getMsg() {
         return msg;

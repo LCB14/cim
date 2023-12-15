@@ -7,7 +7,7 @@ import com.crossoverjie.cim.common.enums.StatusEnum;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/8/25 15:26
+ * Date: 2018/8/25 15:26
  * @since JDK 1.8
  */
 public class CIMException extends GenericException {

@@ -16,18 +16,21 @@ public abstract class AbstractConsistentHash {
 
     /**
      * 新增节点
+     *
      * @param key
      * @param value
      */
-    protected abstract void add(long key,String value);
+    protected abstract void add(long key, String value);
 
     /**
      * 排序节点，数据结构自身支持排序可以不用重写
      */
-    protected void sort(){}
+    protected void sort() {
+    }
 
     /**
      * 根据当前的 key 通过一致性 hash 算法的规则取出一个节点
+     *
      * @param value
      * @return
      */
@@ -35,26 +38,28 @@ public abstract class AbstractConsistentHash {
 
     /**
      * 传入节点列表以及客户端信息获取一个服务节点
+     *
      * @param values
      * @param key
      * @return
      */
-    public String process(List<String> values,String key){
+    public String process(List<String> values, String key) {
 
         for (String value : values) {
             add(hash(value), value);
         }
         sort();
 
-        return getFirstNodeValue(key) ;
+        return getFirstNodeValue(key);
     }
 
     /**
      * hash 运算
+     *
      * @param value
      * @return
      */
-    public Long hash(String value){
+    public Long hash(String value) {
         MessageDigest md5;
         try {
             md5 = MessageDigest.getInstance("MD5");

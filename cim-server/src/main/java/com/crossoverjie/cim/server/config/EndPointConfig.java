@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * Function: 监控端点配置
  *
  * @author crossoverJie
- *         Date: 17/04/2018 15:48
+ * Date: 17/04/2018 15:48
  * @since JDK 1.8
  */
 @Configuration
@@ -20,8 +20,8 @@ public class EndPointConfig {
     private String channelMap;
 
     @Bean
-    public CustomEndpoint buildEndPoint(){
-        CustomEndpoint customEndpoint = new CustomEndpoint(channelMap) ;
-        return customEndpoint ;
+    public CustomEndpoint buildEndPoint() {
+        CustomEndpoint customEndpoint = new CustomEndpoint(channelMap);
+        return customEndpoint;
     }
 }

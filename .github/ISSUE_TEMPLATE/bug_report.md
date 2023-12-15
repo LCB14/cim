@@ -12,6 +12,7 @@ A clear and concise description of what the bug is.
 
 **复现**
 复现步骤:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -22,7 +23,6 @@ A clear and concise description of what you expected to happen.
 
 **截图**
 If applicable, add screenshots to help explain your problem.
-
 
 **附加信息**
 Add any other context about the problem here.

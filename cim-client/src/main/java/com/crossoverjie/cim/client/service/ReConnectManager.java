@@ -24,17 +24,18 @@ public final class ReConnectManager {
 
     /**
      * Trigger reconnect job
+     *
      * @param ctx
      */
     public void reConnect(ChannelHandlerContext ctx) {
-        buildExecutor() ;
-        scheduledExecutorService.scheduleAtFixedRate(new ReConnectJob(ctx),0,10, TimeUnit.SECONDS) ;
+        buildExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(new ReConnectJob(ctx), 0, 10, TimeUnit.SECONDS);
     }
 
     /**
      * Close reconnect job if reconnect success.
      */
-    public void reConnectSuccess(){
+    public void reConnectSuccess() {
         scheduledExecutorService.shutdown();
     }
 

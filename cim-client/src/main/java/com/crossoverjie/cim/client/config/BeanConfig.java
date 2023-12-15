@@ -19,7 +19,7 @@ import java.util.concurrent.*;
  * Function:bean 配置
  *
  * @author crossoverJie
- *         Date: 24/05/2018 15:55
+ * Date: 24/05/2018 15:55
  * @since JDK 1.8
  */
 @Configuration
@@ -40,6 +40,7 @@ public class BeanConfig {
 
     /**
      * 创建心跳单例
+     *
      * @return
      */
     @Bean(value = "heartBeat")
@@ -55,6 +56,7 @@ public class BeanConfig {
 
     /**
      * http client
+     *
      * @return okHttp
      */
     @Bean
@@ -62,7 +64,7 @@ public class BeanConfig {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
-                .writeTimeout(10,TimeUnit.SECONDS)
+                .writeTimeout(10, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true);
         return builder.build();
     }
@@ -70,46 +72,48 @@ public class BeanConfig {
 
     /**
      * 创建回调线程池
+     *
      * @return
      */
     @Bean("callBackThreadPool")
-    public ThreadPoolExecutor buildCallerThread(){
+    public ThreadPoolExecutor buildCallerThread() {
         BlockingQueue<Runnable> queue = new LinkedBlockingQueue(queueSize);
         ThreadFactory product = new ThreadFactoryBuilder()
                 .setNameFormat("msg-callback-%d")
                 .setDaemon(true)
                 .build();
-        ThreadPoolExecutor productExecutor = new ThreadPoolExecutor(poolSize, poolSize, 1, TimeUnit.MILLISECONDS, queue,product);
-        return  productExecutor ;
+        ThreadPoolExecutor productExecutor = new ThreadPoolExecutor(poolSize, poolSize, 1, TimeUnit.MILLISECONDS, queue, product);
+        return productExecutor;
     }
 
 
     @Bean("scheduledTask")
-    public ScheduledExecutorService buildSchedule(){
+    public ScheduledExecutorService buildSchedule() {
         ThreadFactory sche = new ThreadFactoryBuilder()
                 .setNameFormat("reConnect-job-%d")
                 .setDaemon(true)
                 .build();
-        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1,sche) ;
-        return scheduledExecutorService ;
+        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1, sche);
+        return scheduledExecutorService;
     }
 
     /**
      * 回调 bean
+     *
      * @return
      */
     @Bean
-    public MsgHandleCaller buildCaller(){
-        MsgHandleCaller caller = new MsgHandleCaller(new MsgCallBackListener()) ;
+    public MsgHandleCaller buildCaller() {
+        MsgHandleCaller caller = new MsgHandleCaller(new MsgCallBackListener());
 
-        return caller ;
+        return caller;
     }
 
 
     @Bean
-    public RingBufferWheel bufferWheel(){
-        ExecutorService executorService = Executors.newFixedThreadPool(2) ;
-        return new RingBufferWheel(executorService) ;
+    public RingBufferWheel bufferWheel() {
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        return new RingBufferWheel(executorService);
     }
 
 }

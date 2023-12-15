@@ -14,12 +14,12 @@ import io.netty.handler.timeout.IdleStateHandler;
  * Function:
  *
  * @author crossoverJie
- *         Date: 17/05/2018 18:51
+ * Date: 17/05/2018 18:51
  * @since JDK 1.8
  */
 public class CIMServerInitializer extends ChannelInitializer<Channel> {
 
-    private final CIMServerHandle cimServerHandle = new CIMServerHandle() ;
+    private final CIMServerHandle cimServerHandle = new CIMServerHandle();
 
     @Override
     protected void initChannel(Channel ch) throws Exception {

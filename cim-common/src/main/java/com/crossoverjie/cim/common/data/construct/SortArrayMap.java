@@ -30,6 +30,7 @@ public class SortArrayMap {
 
     /**
      * 写入数据
+     *
      * @param key
      * @param value
      */
@@ -41,6 +42,7 @@ public class SortArrayMap {
 
     /**
      * 校验是否需要扩容
+     *
      * @param size
      */
     private void checkSize(int size) {
@@ -54,15 +56,16 @@ public class SortArrayMap {
 
     /**
      * 顺时针取出数据
+     *
      * @param key
      * @return
      */
     public String firstNodeValue(long key) {
-        if (size == 0){
-            return null ;
+        if (size == 0) {
+            return null;
         }
         for (Node bucket : buckets) {
-            if (bucket == null){
+            if (bucket == null) {
                 break;
             }
             if (bucket.key >= key) {
@@ -103,9 +106,9 @@ public class SortArrayMap {
         return size;
     }
 
-    public void clear(){
+    public void clear() {
         buckets = new Node[DEFAULT_SIZE];
-        size = 0 ;
+        size = 0;
     }
 
     /**

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * Function: Zookeeper 工具
  *
  * @author crossoverJie
- *         Date: 2018/8/19 00:33
+ * Date: 2018/8/19 00:33
  * @since JDK 1.8
  */
 @Component
@@ -24,19 +24,19 @@ public class ZKit {
     private ZkClient zkClient;
 
     @Autowired
-    private AppConfiguration appConfiguration ;
+    private AppConfiguration appConfiguration;
 
     /**
      * 创建父级节点
      */
-    public void createRootNode(){
+    public void createRootNode() {
         boolean exists = zkClient.exists(appConfiguration.getZkRoot());
-        if (exists){
+        if (exists) {
             return;
         }
 
         //创建 root
-        zkClient.createPersistent(appConfiguration.getZkRoot()) ;
+        zkClient.createPersistent(appConfiguration.getZkRoot());
     }
 
     /**

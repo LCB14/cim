@@ -6,7 +6,7 @@ import com.crossoverjie.cim.client.service.CustomMsgHandleListener;
  * Function:消息回调 bean
  *
  * @author crossoverJie
- *         Date: 2018/12/26 17:37
+ * Date: 2018/12/26 17:37
  * @since JDK 1.8
  */
 public class MsgHandleCaller {
@@ -14,7 +14,7 @@ public class MsgHandleCaller {
     /**
      * 回调接口
      */
-    private CustomMsgHandleListener msgHandleListener ;
+    private CustomMsgHandleListener msgHandleListener;
 
     public MsgHandleCaller(CustomMsgHandleListener msgHandleListener) {
         this.msgHandleListener = msgHandleListener;

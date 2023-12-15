@@ -14,7 +14,7 @@ import io.netty.handler.timeout.IdleStateHandler;
  * Function:
  *
  * @author crossoverJie
- *         Date: 23/02/2018 22:47
+ * Date: 23/02/2018 22:47
  * @since JDK 1.8
  */
 public class CIMClientHandleInitializer extends ChannelInitializer<Channel> {

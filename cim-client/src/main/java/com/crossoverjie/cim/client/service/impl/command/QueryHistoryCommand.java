@@ -21,15 +21,15 @@ public class QueryHistoryCommand implements InnerCommand {
 
 
     @Autowired
-    private MsgLogger msgLogger ;
+    private MsgLogger msgLogger;
 
     @Autowired
-    private EchoService echoService ;
+    private EchoService echoService;
 
     @Override
     public void process(String msg) {
         String[] split = msg.split(" ");
-        if (split.length < 2){
+        if (split.length < 2) {
             return;
         }
         String res = msgLogger.query(split[1]);

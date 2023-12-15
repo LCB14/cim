@@ -9,14 +9,14 @@ import javax.validation.constraints.NotNull;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/05/21 15:56
+ * Date: 2018/05/21 15:56
  * @since JDK 1.8
  */
 public class StringReqVO extends BaseRequest {
 
     @NotNull(message = "msg 不能为空")
     @ApiModelProperty(required = true, value = "msg", example = "hello")
-    private String msg ;
+    private String msg;
 
     public String getMsg() {
         return msg;

@@ -22,7 +22,7 @@ public class NetAddressIsReachable {
      * @return True if connection successful
      */
     public static boolean checkAddressReachable(String address, int port, int timeout) {
-        Socket socket = new Socket() ;
+        Socket socket = new Socket();
         try {
             socket.connect(new InetSocketAddress(address, port), timeout);
             return true;
@@ -32,7 +32,7 @@ public class NetAddressIsReachable {
             try {
                 socket.close();
             } catch (IOException e) {
-                return false ;
+                return false;
             }
         }
     }

@@ -6,12 +6,12 @@ import com.crossoverjie.cim.common.req.BaseRequest;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/12/23 22:30
+ * Date: 2018/12/23 22:30
  * @since JDK 1.8
  */
-public class LoginReqVO extends BaseRequest{
-    private Long userId ;
-    private String userName ;
+public class LoginReqVO extends BaseRequest {
+    private Long userId;
+    private String userName;
 
     public LoginReqVO(Long userId, String userName) {
         this.userId = userId;

@@ -11,7 +11,8 @@ public interface InnerCommand {
 
     /**
      * 执行
-     * @param msg 
+     *
+     * @param msg
      */
-    void process(String msg) ;
+    void process(String msg);
 }

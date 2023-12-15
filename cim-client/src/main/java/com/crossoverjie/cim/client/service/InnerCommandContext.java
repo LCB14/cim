@@ -23,6 +23,7 @@ public class InnerCommandContext {
 
     /**
      * 获取执行器实例
+     *
      * @param command 执行器实例
      * @return
      */
@@ -35,8 +36,8 @@ public class InnerCommandContext {
         String clazz = allClazz.get(trim[0]);
         InnerCommand innerCommand = null;
         try {
-            if (StringUtil.isEmpty(clazz)){
-                clazz = PrintAllCommand.class.getName() ;
+            if (StringUtil.isEmpty(clazz)) {
+                clazz = PrintAllCommand.class.getName();
             }
             innerCommand = (InnerCommand) SpringBeanFactory.getBean(Class.forName(clazz));
         } catch (Exception e) {

@@ -9,7 +9,7 @@ import java.util.List;
  * Function:字典树字符前缀模糊匹配
  *
  * @author crossoverJie
- *         Date: 2019/1/7 18:58
+ * Date: 2019/1/7 18:58
  * @since JDK 1.8
  */
 public class TrieTree {

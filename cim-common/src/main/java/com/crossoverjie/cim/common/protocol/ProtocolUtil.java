@@ -6,7 +6,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/8/1 12:24
+ * Date: 2018/8/1 12:24
  * @since JDK 1.8
  */
 public class ProtocolUtil {
@@ -27,15 +27,17 @@ public class ProtocolUtil {
 
     /**
      * 编码
+     *
      * @param protocol
      * @return
      */
-    public static byte[] encode(CIMRequestProto.CIMReqProtocol protocol){
-        return protocol.toByteArray() ;
+    public static byte[] encode(CIMRequestProto.CIMReqProtocol protocol) {
+        return protocol.toByteArray();
     }
 
     /**
      * 解码
+     *
      * @param bytes
      * @return
      * @throws InvalidProtocolBufferException

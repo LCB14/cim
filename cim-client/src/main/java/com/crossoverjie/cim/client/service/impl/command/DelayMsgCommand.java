@@ -19,35 +19,34 @@ import org.springframework.stereotype.Service;
 public class DelayMsgCommand implements InnerCommand {
 
     @Autowired
-    private EchoService echoService ;
+    private EchoService echoService;
 
     @Autowired
-    private MsgHandle msgHandle ;
+    private MsgHandle msgHandle;
 
     @Autowired
-    private RingBufferWheel ringBufferWheel ;
+    private RingBufferWheel ringBufferWheel;
 
     @Override
     public void process(String msg) {
-        if (msg.split(" ").length <=2){
-            echoService.echo("incorrect commond, :delay [msg] [delayTime]") ;
-            return ;
+        if (msg.split(" ").length <= 2) {
+            echoService.echo("incorrect commond, :delay [msg] [delayTime]");
+            return;
         }
 
-        String message = msg.split(" ")[1] ;
+        String message = msg.split(" ")[1];
         Integer delayTime = Integer.valueOf(msg.split(" ")[2]);
 
-        RingBufferWheel.Task task = new DelayMsgJob(message) ;
+        RingBufferWheel.Task task = new DelayMsgJob(message);
         task.setKey(delayTime);
         ringBufferWheel.addTask(task);
         echoService.echo(EmojiParser.parseToUnicode(msg));
     }
 
 
+    private class DelayMsgJob extends RingBufferWheel.Task {
 
-    private class DelayMsgJob extends RingBufferWheel.Task{
-
-        private String msg ;
+        private String msg;
 
         public DelayMsgJob(String msg) {
             this.msg = msg;

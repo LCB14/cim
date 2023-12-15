@@ -93,8 +93,8 @@ public class BeanConfig {
             Method method = Class.forName(routeWay).getMethod("setHash", AbstractConsistentHash.class);
             AbstractConsistentHash consistentHash = (AbstractConsistentHash)
                     Class.forName(appConfiguration.getConsistentHashWay()).newInstance();
-            method.invoke(routeHandle,consistentHash) ;
-            return routeHandle ;
+            method.invoke(routeHandle, consistentHash);
+            return routeHandle;
         } else {
 
             return routeHandle;

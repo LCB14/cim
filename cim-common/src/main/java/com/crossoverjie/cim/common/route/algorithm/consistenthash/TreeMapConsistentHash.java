@@ -14,12 +14,12 @@ import java.util.TreeMap;
  * @since JDK 1.8
  */
 public class TreeMapConsistentHash extends AbstractConsistentHash {
-    private TreeMap<Long,String> treeMap = new TreeMap<Long, String>() ;
+    private TreeMap<Long, String> treeMap = new TreeMap<Long, String>();
 
     /**
      * 虚拟节点数量
      */
-    private static final int VIRTUAL_NODE_SIZE = 2 ;
+    private static final int VIRTUAL_NODE_SIZE = 2;
 
     @Override
     public void add(long key, String value) {
@@ -28,7 +28,7 @@ public class TreeMapConsistentHash extends AbstractConsistentHash {
         treeMap.clear();
         for (int i = 0; i < VIRTUAL_NODE_SIZE; i++) {
             Long hash = super.hash("vir" + key + i);
-            treeMap.put(hash,value);
+            treeMap.put(hash, value);
         }
         treeMap.put(key, value);
     }
@@ -41,8 +41,8 @@ public class TreeMapConsistentHash extends AbstractConsistentHash {
         if (!last.isEmpty()) {
             return last.get(last.firstKey());
         }
-        if (treeMap.size() == 0){
-            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE) ;
+        if (treeMap.size() == 0) {
+            throw new CIMException(StatusEnum.SERVER_NOT_AVAILABLE);
         }
         return treeMap.firstEntry().getValue();
     }

@@ -24,14 +24,14 @@ public class EmojiCommand implements InnerCommand {
     private final static Logger LOGGER = LoggerFactory.getLogger(EmojiCommand.class);
 
     @Autowired
-    private EchoService echoService ;
+    private EchoService echoService;
 
 
     @Override
     public void process(String msg) {
-        if (msg.split(" ").length <=1){
-            echoService.echo("incorrect commond, :emoji [option]") ;
-            return ;
+        if (msg.split(" ").length <= 1) {
+            echoService.echo("incorrect commond, :emoji [option]");
+            return;
         }
         String value = msg.split(" ")[1];
         if (value != null) {

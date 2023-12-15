@@ -27,6 +27,7 @@ public interface RouteApi {
 
     /**
      * Point to point chat
+     *
      * @param p2pRequest
      * @return
      * @throws Exception
@@ -45,6 +46,7 @@ public interface RouteApi {
 
     /**
      * Login account
+     *
      * @param loginReqVO
      * @return
      * @throws Exception

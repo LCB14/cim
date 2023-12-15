@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/8/24 01:43
+ * Date: 2018/8/24 01:43
  * @since JDK 1.8
  */
 @Component
@@ -20,16 +20,16 @@ public class AppConfiguration {
     private String userName;
 
     @Value("${cim.msg.logger.path}")
-    private String msgLoggerPath ;
+    private String msgLoggerPath;
 
     @Value("${cim.clear.route.request.url}")
-    private String clearRouteUrl ;
+    private String clearRouteUrl;
 
     @Value("${cim.heartbeat.time}")
-    private long heartBeatTime ;
+    private long heartBeatTime;
 
     @Value("${cim.reconnect.count}")
-    private int errorCount ;
+    private int errorCount;
 
     public Long getUserId() {
         return userId;

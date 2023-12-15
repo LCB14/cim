@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class ExceptionHandlingController {
 
-    private static Logger logger = LoggerFactory.getLogger(ExceptionHandlingController.class) ;
+    private static Logger logger = LoggerFactory.getLogger(ExceptionHandlingController.class);
 
     @ExceptionHandler(CIMException.class)
     @ResponseBody()
@@ -27,7 +27,7 @@ public class ExceptionHandlingController {
         BaseResponse baseResponse = new BaseResponse();
         baseResponse.setCode(ex.getErrorCode());
         baseResponse.setMessage(ex.getMessage());
-        return baseResponse ;
+        return baseResponse;
     }
 
 }

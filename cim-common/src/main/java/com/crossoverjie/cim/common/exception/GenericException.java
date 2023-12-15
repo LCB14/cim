@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Function:
  *
  * @author crossoverJie
- *         Date: 2018/8/25 15:27
+ * Date: 2018/8/25 15:27
  * @since JDK 1.8
  */
 public class GenericException extends RuntimeException implements Serializable {

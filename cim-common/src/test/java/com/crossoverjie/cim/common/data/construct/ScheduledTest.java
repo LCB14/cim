@@ -17,14 +17,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class ScheduledTest {
 
-    private static Logger logger = LoggerFactory.getLogger(ScheduledTest.class) ;
+    private static Logger logger = LoggerFactory.getLogger(ScheduledTest.class);
 
     public static void main(String[] args) {
         logger.info("start.....");
         ThreadFactory scheduled = new ThreadFactoryBuilder()
                 .setNameFormat("scheduled-%d")
                 .build();
-        ScheduledThreadPoolExecutor scheduledExecutorService = new ScheduledThreadPoolExecutor(2,scheduled) ;
-        scheduledExecutorService.schedule(() -> logger.info("scheduled........."),3, TimeUnit.SECONDS) ;
+        ScheduledThreadPoolExecutor scheduledExecutorService = new ScheduledThreadPoolExecutor(2, scheduled);
+        scheduledExecutorService.schedule(() -> logger.info("scheduled........."), 3, TimeUnit.SECONDS);
     }
 }
