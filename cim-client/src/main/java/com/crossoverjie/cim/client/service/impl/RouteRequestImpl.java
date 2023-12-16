@@ -68,6 +68,7 @@ public class RouteRequestImpl implements RouteRequest {
     @Override
     public void sendP2PMsg(P2PReqVO p2PReqVO) throws Exception {
         RouteApi routeApi = new ProxyManager<>(RouteApi.class, routeUrl, okHttpClient).getInstance();
+
         com.crossoverjie.cim.route.api.vo.req.P2PReqVO vo = new com.crossoverjie.cim.route.api.vo.req.P2PReqVO();
         vo.setMsg(p2PReqVO.getMsg());
         vo.setReceiveUserId(p2PReqVO.getReceiveUserId());
@@ -75,15 +76,16 @@ public class RouteRequestImpl implements RouteRequest {
 
         Response response = null;
         try {
+            // 请求路由服务
             response = (Response) routeApi.p2pRoute(vo);
+
+            // 解析路由响应
             String json = response.body().string();
             BaseResponse baseResponse = JSON.parseObject(json, BaseResponse.class);
-
             // account offline.
             if (baseResponse.getCode().equals(StatusEnum.OFF_LINE.getCode())) {
                 LOGGER.error(p2PReqVO.getReceiveUserId() + ":" + StatusEnum.OFF_LINE.getMessage());
             }
-
         } catch (Exception e) {
             LOGGER.error("exception", e);
         } finally {
@@ -93,7 +95,9 @@ public class RouteRequestImpl implements RouteRequest {
 
     @Override
     public CIMServerResVO.ServerInfo getCIMServer(LoginReqVO loginReqVO) throws Exception {
+        // 路由服务
         RouteApi routeApi = new ProxyManager<>(RouteApi.class, routeUrl, okHttpClient).getInstance();
+
         com.crossoverjie.cim.route.api.vo.req.LoginReqVO vo = new com.crossoverjie.cim.route.api.vo.req.LoginReqVO();
         vo.setUserId(loginReqVO.getUserId());
         vo.setUserName(loginReqVO.getUserName());
@@ -101,7 +105,9 @@ public class RouteRequestImpl implements RouteRequest {
         Response response = null;
         CIMServerResVO cimServerResVO = null;
         try {
+            // 请求路由服进行登录
             response = (Response) routeApi.login(vo);
+
             String json = response.body().string();
             cimServerResVO = JSON.parseObject(json, CIMServerResVO.class);
 

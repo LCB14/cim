@@ -98,8 +98,7 @@ public class CIMClient {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(group)
                 .channel(NioSocketChannel.class)
-                .handler(new CIMClientHandleInitializer())
-        ;
+                .handler(new CIMClientHandleInitializer());
 
         ChannelFuture future = null;
         try {
@@ -184,7 +183,6 @@ public class CIMClient {
      * @param googleProtocolVO
      */
     public void sendGoogleProtocolMsg(GoogleProtocolVO googleProtocolVO) {
-
         CIMRequestProto.CIMReqProtocol protocol = CIMRequestProto.CIMReqProtocol.newBuilder()
                 .setRequestId(googleProtocolVO.getRequestId())
                 .setReqMsg(googleProtocolVO.getMsg())

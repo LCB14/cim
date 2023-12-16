@@ -60,9 +60,7 @@ public class ServerCache {
      * @return
      */
     public List<String> getServerList() {
-
         List<String> list = new ArrayList<>();
-
         if (cache.size() == 0) {
             List<String> allNode = zkUtil.getAllNode();
             for (String node : allNode) {
@@ -70,11 +68,11 @@ public class ServerCache {
                 addCache(key);
             }
         }
+
         for (Map.Entry<String, String> entry : cache.asMap().entrySet()) {
             list.add(entry.getKey());
         }
         return list;
-
     }
 
     /**

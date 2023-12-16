@@ -71,8 +71,11 @@ public class MsgHandler implements MsgHandle {
         if (totalMsg.length > 1) {
             //私聊
             P2PReqVO p2PReqVO = new P2PReqVO();
+            // 发送人
             p2PReqVO.setUserId(configuration.getUserId());
+            // 接收人
             p2PReqVO.setReceiveUserId(Long.parseLong(totalMsg[0]));
+            // 消息内容
             p2PReqVO.setMsg(totalMsg[1]);
             try {
                 p2pChat(p2PReqVO);

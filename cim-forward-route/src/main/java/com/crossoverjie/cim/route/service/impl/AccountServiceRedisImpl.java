@@ -131,7 +131,6 @@ public class AccountServiceRedisImpl implements AccountService {
     @Override
     public CIMServerResVO loadRouteRelatedByUserId(Long userId) {
         String value = redisTemplate.opsForValue().get(ROUTE_PREFIX + userId);
-
         if (value == null) {
             throw new CIMException(OFF_LINE);
         }
@@ -154,6 +153,7 @@ public class AccountServiceRedisImpl implements AccountService {
 
         String url = "http://" + cimServerResVO.getIp() + ":" + cimServerResVO.getHttpPort();
         ServerApi serverApi = new ProxyManager<>(ServerApi.class, url, okHttpClient).getInstance();
+
         SendMsgReqVO vo = new SendMsgReqVO(cimUserInfo.getUserName() + ":" + groupReqVO.getMsg(), groupReqVO.getUserId());
         Response response = null;
         try {

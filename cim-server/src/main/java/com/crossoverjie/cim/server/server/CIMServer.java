@@ -50,7 +50,6 @@ public class CIMServer {
      */
     @PostConstruct
     public void start() throws InterruptedException {
-
         ServerBootstrap bootstrap = new ServerBootstrap()
                 .group(boss, work)
                 .channel(NioServerSocketChannel.class)
@@ -58,7 +57,6 @@ public class CIMServer {
                 //保持长连接
                 .childOption(ChannelOption.SO_KEEPALIVE, true)
                 .childHandler(new CIMServerInitializer());
-
         ChannelFuture future = bootstrap.bind().sync();
         if (future.isSuccess()) {
             LOGGER.info("Start cim server success!!!");
@@ -84,11 +82,11 @@ public class CIMServer {
      */
     public void sendMsg(SendMsgReqVO sendMsgReqVO) {
         NioSocketChannel socketChannel = SessionSocketHolder.get(sendMsgReqVO.getUserId());
-
         if (null == socketChannel) {
             LOGGER.error("client {} offline!", sendMsgReqVO.getUserId());
             return;
         }
+
         CIMRequestProto.CIMReqProtocol protocol = CIMRequestProto.CIMReqProtocol.newBuilder()
                 .setRequestId(sendMsgReqVO.getUserId())
                 .setReqMsg(sendMsgReqVO.getMsg())

@@ -47,6 +47,7 @@ public class IndexController implements ServerApi {
     @ResponseBody
     public BaseResponse<SendMsgResVO> sendMsg(@RequestBody SendMsgReqVO sendMsgReqVO) {
         BaseResponse<SendMsgResVO> res = new BaseResponse();
+
         cimServer.sendMsg(sendMsgReqVO);
 
         counterService.increment(Constants.COUNTER_SERVER_PUSH_COUNT);

@@ -49,7 +49,6 @@ public class CIMClientHandle extends SimpleChannelInboundHandler<CIMResponseProt
 
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent idleStateEvent = (IdleStateEvent) evt;
 
@@ -77,7 +76,6 @@ public class CIMClientHandle extends SimpleChannelInboundHandler<CIMResponseProt
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-
         if (shutDownMsg == null) {
             shutDownMsg = SpringBeanFactory.getBean(ShutDownMsg.class);
         }
@@ -101,7 +99,6 @@ public class CIMClientHandle extends SimpleChannelInboundHandler<CIMResponseProt
             echoService = SpringBeanFactory.getBean(EchoServiceImpl.class);
         }
 
-
         //心跳更新时间
         if (msg.getType() == Constants.CommandType.PING) {
             //LOGGER.info("收到服务端心跳！！！");
@@ -116,8 +113,6 @@ public class CIMClientHandle extends SimpleChannelInboundHandler<CIMResponseProt
             String response = EmojiParser.parseToUnicode(msg.getResMsg());
             echoService.echo(response);
         }
-
-
     }
 
     /**

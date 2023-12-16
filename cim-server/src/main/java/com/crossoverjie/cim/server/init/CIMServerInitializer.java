@@ -23,7 +23,6 @@ public class CIMServerInitializer extends ChannelInitializer<Channel> {
 
     @Override
     protected void initChannel(Channel ch) throws Exception {
-
         ch.pipeline()
                 //11 秒没有向客户端发送消息就发生心跳
                 .addLast(new IdleStateHandler(11, 0, 0))
